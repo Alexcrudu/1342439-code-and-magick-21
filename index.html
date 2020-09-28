@@ -180,16 +180,22 @@
   </div>
 </template>
 <script>
+  var PROPORTION_OF_HEIGHT = 1.337;
+
+  var SPEED_WITH_WIND = 5;
+
+  var SPEED_AGAINST_WIND = 2;
+
   var fireballSize = 22;
-  
+
   var getFireballSpeed = function (isMovingLeft) {
-    return isMovingLeft ? 2 : 5;
+    return isMovingLeft ? SPEED_AGAINST_WIND : SPEED_WITH_WIND;
   }
 
   var wizardWidth = 70;
 
   var getWizardHeight = function () {
-    return 1.337 * wizardWidth;
+    return PROPORTION_OF_HEIGHT * wizardWidth;
   }
 
   var wizardSpeed = 3;
