@@ -16,11 +16,10 @@ const CLOUD_COLOR = '#fff';
 const CLOUD_SHADOW_COLOR = 'rgba(0, 0, 0, 0.7)';
 const MAIN_PLAYER = 'Вы';
 const MAIN_PLAYER_COLOR = 'rgba(255, 0, 0, 1)';
-const COLOR_BLUE_RANDOM = 'hsl(235, 100%,';
 
 
 function getRandomColor() {
-  return COLOR_BLUE_RANDOM + Math.random() * 100 + '%';
+  return 'hsl(235, 100%,' + Math.random() * 100 + '%';
 }
 
 function renderText(ctx, text, x, y, font, color) {
@@ -61,14 +60,9 @@ window.renderStatistics = function (ctx, names, times) {
   renderCloud(ctx, CLOUD_X, CLOUD_Y, CLOUD_COLOR);
   ctx.fillStyle = MAIN_COLOR;
 
-  for (let i = 0; i < names.length; i++) {
-    let color = '';
 
-    if (names[i] === MAIN_PLAYER) {
-      color = MAIN_PLAYER_COLOR;
-    } else {
-      color = getRandomColor();
-    }
+  for (let i = 0; i < names.length; i++) {
+    const color = names[i] === MAIN_PLAYER ? MAIN_PLAYER_COLOR : getRandomColor();
 
     drawColumn(i, names[i], color, times[i], getMaxTime(times), ctx);
   }
