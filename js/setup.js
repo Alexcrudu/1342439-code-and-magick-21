@@ -5,9 +5,9 @@ const SURNAME = ['да Марья', 'Верон', 'Мирабелла', 'Вал�
 const COAT_COLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 const EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
 const WIZZARD_NUMBER = 4;
-let popup = document.querySelector('.setup');
-let similarListElement = document.querySelector('.setup-similar-list');
-let similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
+const popup = document.querySelector('.setup');
+const similarListElement = document.querySelector('.setup-similar-list');
+const similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 
 
 popup.classList.remove('hidden');
