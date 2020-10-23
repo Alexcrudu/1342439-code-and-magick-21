@@ -1,8 +1,14 @@
 'use strict';
 
+const FIRST_NAME = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
+const SURNAME = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
+const COAT_COLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+const EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
+const WIZZARD_NUMBER = 4;
 let popup = document.querySelector('.setup');
 let similarListElement = document.querySelector('.setup-similar-list');
 let similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
+
 
 popup.classList.remove('hidden');
 
@@ -17,9 +23,7 @@ function getRandomArrayItem(array) {
 }
 
 function generateName() {
-  let name1 = (['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон']);
-  let name2 = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-  let name = getRandomArrayItem(name1) + ' ' + getRandomArrayItem(name2);
+  let name = getRandomArrayItem(FIRST_NAME) + ' ' + getRandomArrayItem(SURNAME);
   return name;
 }
 
@@ -29,8 +33,8 @@ function generateWizard() {
 
   let wizard = {
     name: generateName(),
-    coatColor: getRandomArrayItem(['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)']),
-    eyesColor: getRandomArrayItem(['black', 'red', 'blue', 'yellow', 'green']),
+    coatColor: getRandomArrayItem(COAT_COLOR),
+    eyesColor: getRandomArrayItem(EYES_COLOR),
   };
 
   wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
@@ -41,7 +45,7 @@ function generateWizard() {
 }
 
 let fragment = document.createDocumentFragment();
-for (var i = 0; i < 4; i++) {
+for (let i = 0; i < WIZZARD_NUMBER; i++) {
   fragment.appendChild(generateWizard());
 }
 similarListElement.appendChild(fragment);
